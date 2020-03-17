@@ -153,7 +153,3 @@ def book_api(book_isbn):
     review_count=review_count,
     average_score=avg_score
     )
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
