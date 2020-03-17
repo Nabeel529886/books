@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Reviews
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron" style="background-color: #343A40; color: white; border-radius: 0;">
+  <div class="container">
+    <h1 class="display-5">Book Description</h1><hr class="my-4">
+    <p><strong>Book ISBN: </strong>{{ book.isbn }}</p>
+    <p><strong>Book Title: </strong>{{ book.title }}</p>
+    <p><strong>Book Author: </strong>{{ book.author }}</p>
+    <p><strong>Book Publish Year: </strong>{{ book.pub_year }}</p>
+    <hr>
+    <h6 class="text-muted mb-2">Rate This Book</h6>
+    <form method="post">
+        <input type="number" name="rating" placeholder="Rate From 1 to 5" min=0 max=5 step="0.1" style="width: 10rem;">
+    </form>
+    <hr>
+    {% if rate %}
+      <h5>You rated {{ rate.rating }}</h5>
+    {% endif %}
+      {% if data %}
+        <p style="font-size: 20px;">good<b>reads</b> book rating:</p>
+        <p><b>Average Rating: {{ data['books'][0]['average_rating'] }}</b></p>
+        <p class="text-muted">Total Number of Ratings: {{ data['books'][0]['work_ratings_count'] }}</p>
+      {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

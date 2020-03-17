@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+  Register
+{% endblock%}
+
+{% block content %}
+    <div class="container" style="margin-top: 60px; padding: 20px; background-color: #343A40; color: white; border-radius: 20px;">
+      <h1 class="mt-2 display-4" style="font-weight: 500;">Sign Up</h1><hr class="mt-4 mb-4">
+      <form method="POST">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.username.label }} {{ form.username(size=20, class_="form-control", placeholder="Username") }}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }} {{ form.password(class_="form-control", placeholder="Password") }}
+      </div>
+      <div class="form-group">
+        {{ form.confirm.label }} {{ form.confirm(class_="form-control", placeholder="Confirm Password") }}
+      </div>
+      <input type="submit" value="Submit" class="btn btn-primary" style="background-color: darkblue; border-color: darkblue;">
+  </form>
+  <p class="mt-4">Already Have an account?<a href="{{ url_for('login') }}"> Login Now!</a></p>
+    </div>
+
+
+
+{% endblock %}
